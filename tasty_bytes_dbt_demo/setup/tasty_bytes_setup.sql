@@ -78,8 +78,8 @@ ALTER SCHEMA tasty_bytes_dbt_db.prod SET METRIC_LEVEL = 'ALL';
 USE tasty_bytes_dbt_db.integrations;
 CREATE OR REPLACE SECRET tasty_bytes_dbt_db.integrations.tb_dbt_git_secret
   TYPE = password
-  USERNAME = 'your-gh-username'
-  PASSWORD = 'YOUR_PERSONAL_ACCESS_TOKEN';
+  USERNAME = 'rhlsinghal'
+  PASSWORD = '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';
 
 -- Replace 'https://github.com/my-github-account' with the URL of the GitHub
 -- account for your forked repository.
@@ -87,7 +87,7 @@ CREATE OR REPLACE SECRET tasty_bytes_dbt_db.integrations.tb_dbt_git_secret
 -- to connect Snowflake to your forked GitHub repository.
 CREATE OR REPLACE API INTEGRATION tb_dbt_git_api_integration
   API_PROVIDER = git_https_api
-  API_ALLOWED_PREFIXES = ('https://github.com/my-github-account')
+  API_ALLOWED_PREFIXES = ('https://github.com/DecisionTreeAnalytics')
   -- Comment out the following line if your forked repository is public
   ALLOWED_AUTHENTICATION_SECRETS = (tasty_bytes_dbt_db.integrations.tb_dbt_git_secret)
   ENABLED = TRUE;
