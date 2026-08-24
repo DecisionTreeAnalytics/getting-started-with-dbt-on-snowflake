@@ -79,7 +79,7 @@ USE tasty_bytes_dbt_db.integrations;
 CREATE OR REPLACE SECRET tasty_bytes_dbt_db.integrations.tb_dbt_git_secret
   TYPE = password
   USERNAME = 'rhlsinghal'
-  PASSWORD = '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';
+  PASSWORD = 'PAT';
 
 -- Replace 'https://github.com/my-github-account' with the URL of the GitHub
 -- account for your forked repository.
