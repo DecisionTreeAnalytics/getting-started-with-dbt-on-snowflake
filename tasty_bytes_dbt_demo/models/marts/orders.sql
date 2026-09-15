@@ -1,3 +1,11 @@
+{{
+  config(
+    materialized='incremental',
+    incremental_strategy='merge',
+    unique_key='order_detail_id'
+  )
+}}
+
 SELECT 
     oh.order_id,
     oh.truck_id,
@@ -44,3 +52,7 @@ JOIN {{ ref('raw_pos_location') }} l
     ON oh.location_id = l.location_id
 LEFT JOIN {{ ref('raw_customer_customer_loyalty') }} cl
     ON oh.customer_id = cl.customer_id
+
+{% if is_incremental() %}
+WHERE oh.order_ts > (SELECT MAX(order_ts) FROM {{ this }})
+{% endif %}

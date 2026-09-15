@@ -5,11 +5,12 @@ tasty_bytes:
       type: snowflake
       account: 'not needed'
       user: 'not needed'
-      role: dbt_deployer
+      role: dbt_dev
       database: tasty_bytes_dbt_db
       schema: dev
       warehouse: tasty_bytes_dbt_wh
       threads: 8
+      query_tag: tasty_bytes_dbt_poc_dev
     prod:
       type: snowflake
       account: 'not needed'
@@ -19,3 +20,4 @@ tasty_bytes:
       schema: prod
       warehouse: tasty_bytes_dbt_wh
       threads: 8
+      query_tag: tasty_bytes_dbt_poc_prod
